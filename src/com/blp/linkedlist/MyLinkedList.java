@@ -74,7 +74,6 @@ public class MyLinkedList {
         size++;
     }
 
-
     // Display all the nodes present in the list
     public void display() {
         //Node current will point to head
