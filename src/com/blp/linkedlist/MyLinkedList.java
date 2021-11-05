@@ -21,6 +21,7 @@ public class MyLinkedList {
 
     //addNode() will add a new node to the list
     public void addNode(int data) {
+
         //Create a new node
         Node newNode = new Node(data);
 
