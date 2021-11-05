@@ -10,9 +10,7 @@ public class MyLinkedList {
         List.addNode(56);
         List.addNode(30);
         List.addNode(70);
-
-        //Displays the nodes present in the list
-        List.display();
+        List.display(); //Displays the nodes present in the list
     }
 
     //Represent the head and tail of the singly linked list
