@@ -1,7 +1,7 @@
 package com.blp.linkedlist;
 
 public class Node {
-    int data;
+    public static int data;
     Node next;
 
     public Node(int data) {
