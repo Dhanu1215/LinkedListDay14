@@ -8,7 +8,7 @@ public class MyLinkedList {
         list.addNode(70);
         list.addingNode(30);
         list.display();
-        list.pop_front();
+        list.deleteFromEnd();
         list.display();
     }
 
@@ -75,29 +75,43 @@ public class MyLinkedList {
         }
         size++;
     }
-    //Delete first node of the list
-    void pop_front() {
-        if(this.head != null) {
-            Node temp = this.head;
-            this.head = this.head.next;
-            temp = null;
+    //Checks if the list is empty
+    public void deleteFromEnd() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        } else {
+            //Checks whether the list contains only one element
+            if (head != tail) {
+                Node current = head;
+                //Loop through the list till the second last element such that current.next is pointing to tail
+                while (current.next != tail) {
+                    current = current.next;
+                }
+                //Second last element will become new tail of the list
+                tail = current;
+                tail.next = null;
+            }
+            //If the list contains only one element
+            //Then it will remove it and both head and tail will point to null
+            else {
+                head = tail = null;
+            }
         }
     }
-
     // Display all the nodes present in the list
     public void display() {
         //Node current will point to head
-        Node temp;
-        temp = this.head;
-        if(temp != null) {
-            System.out.print("The list contains: ");
-            while(temp != null) {
-                System.out.print(temp.data + " ");
-                temp = temp.next;
-            }
-            System.out.println();
-        } else {
-            System.out.println("The list is empty.");
+        Node current = head;
+        if(head == null) {
+            System.out.println("List is empty");
+            return;
         }
+        while(current != null) {
+            //Prints each node by incrementing pointer
+            System.out.print(current.data + "->");
+            current = current.next;
+        }
+        System.out.println();
     }
 }
