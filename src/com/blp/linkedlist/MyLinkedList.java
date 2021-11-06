@@ -8,6 +8,8 @@ public class MyLinkedList {
         list.addNode(70);
         list.addingNode(30);
         list.display();
+        list.pop_front();
+        list.display();
     }
 
     public int size;
@@ -73,21 +75,29 @@ public class MyLinkedList {
         }
         size++;
     }
+    //Delete first node of the list
+    void pop_front() {
+        if(this.head != null) {
+            Node temp = this.head;
+            this.head = this.head.next;
+            temp = null;
+        }
+    }
 
     // Display all the nodes present in the list
     public void display() {
         //Node current will point to head
-        Node current = head;
-        if (head == null) {
-            System.out.println("List is empty");
-            return;
+        Node temp;
+        temp = this.head;
+        if(temp != null) {
+            System.out.print("The list contains: ");
+            while(temp != null) {
+                System.out.print(temp.data + " ");
+                temp = temp.next;
+            }
+            System.out.println();
+        } else {
+            System.out.println("The list is empty.");
         }
-
-        while (current != null) {
-            //Prints each node by incrementing pointer
-            System.out.print(current.data + " ");
-            current = current.next;
-        }
-        System.out.println();
     }
 }
